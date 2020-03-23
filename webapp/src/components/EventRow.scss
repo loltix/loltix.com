@@ -1,0 +1,84 @@
+@import "../styles/variables.scss";
+
+.eventRow {
+  border-bottom: 1px solid $lightGray;
+  padding: 15px 0;
+  display: flex;
+  min-height: 150px;
+  .dateAndImage {
+    width: 260px;
+    background-color: $primaryMauve;
+    color: $white;
+    margin-right: $spacing;
+    display: flex;
+    height: 150px;
+    .date {
+      width: 130px;
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      text-align: center;
+      text-transform: uppercase;
+      & > div {
+        margin: 2px 0;
+      }
+      .weekdays {
+        font-size: $baseFontSize;
+      }
+    }
+    .resultImage {
+      height: 100%;
+      width: 100%;
+      background-color: #ddd;
+      overflow: hidden;
+    }
+  }
+  .headlineAndDescription {
+    &:hover {
+      cursor: pointer;
+    }
+    margin-right: $spacing;
+    .headline {
+      font-size: 24px;
+      margin-bottom: $halfSpacing;
+      font-weight: bold;
+    }
+    .description {
+      color: #909092;
+      margin-bottom: $halfSpacing;
+    }
+    .moreInfoLink a {
+      color: $primaryOrange;
+      font-weight: bold;
+    }
+  }
+  .locationAndTimes {
+    min-width: 200px;
+    .eventTime {
+      color: $mediumGray;
+      margin-bottom: 5px;
+    }
+    .location {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .eventRow {
+    flex-direction: column;
+    .dateAndImage {
+      width: 100%;
+      .resultImage {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  .eventRow .headlineAndDescription {
+    margin-top: $halfSpacing;
+  }
+  .eventRow .locationAndTimes {
+    margin-top: $halfSpacing;
+  }
+}

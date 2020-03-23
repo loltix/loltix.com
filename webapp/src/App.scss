@@ -1,0 +1,53 @@
+@import "styles/variables.scss";
+
+body {
+  margin: 0;
+}
+* {
+  font-family: sans-serif;
+}
+.container {
+  max-width: 1068px;
+  margin: auto;
+  padding: 0 $spacing;
+}
+
+h2 {
+  color: $white;
+  font-size: 28px;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+span.orangeText {
+  color: $primaryOrange;
+}
+
+.ctaButton {
+  background-color: $primaryOrange;
+  color: $white;
+  width: 100%;
+  padding: $halfSpacing;
+  font-size: 16px;
+  margin-top: $halfSpacing;
+  border: 0;
+}
+.ctaButton:hover {
+  cursor: pointer;
+}
+
+.secondaryButton {
+  background-color: $primaryMauve;
+  color: $white;
+  padding: $spacing/4;
+  margin-left: $halfSpacing;
+  font-size: $baseFontSize;
+  border: 0;
+}
+.secondaryButton:hover {
+  cursor: pointer;
+}

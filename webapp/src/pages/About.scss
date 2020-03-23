@@ -1,0 +1,7 @@
+@import "../styles/variables.scss";
+
+.about.container {
+  min-height: 1000px;
+  background-color: $primaryMauve;
+  padding-top: $spacing;
+}

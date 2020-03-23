@@ -1,0 +1,45 @@
+DONE-test what exists so far in other browsers
+DONE-make the header responsive
+DONE-cut the icon out and include it
+DONE-make the upcoming shows responsive for mobile
+DONE-finish up the ComedianRow component
+   -fix width on the image, and name column
+   -fix the video image to the far right
+   -the middle section ("style and bio") expands
+DONE-add node SASS and refactor the CSS
+    -move colors to its own variables file
+    -move margins to their own env file
+
+DONE: try and match the mobile comps for the top header and top menu
+    let chad know the whip is still a WIP
+    get the menu functional
+DONE: refactor CSS into SCSS now that we can nest styles
+
+DONE-fix the cord at the header
+
+-add a black footer with links (re-use same component?
+
+-finish the comps for the remaining pages
+   DONE venue list
+    event detail page
+        white box with orange ticket button link at the top
+        venue details
+        other shows you might like carousel
+    comedian detail page
+        NOTE: this has a mobile comp page
+    venue detail page
+
+-connect up to slack
+-push this up to a repo that Alex has
+    strip out comps and other unneeded stuff.
+-unit test the components that exist right now
+-should you be able to expand/collapse the filter ("refine search" options)
+
+-try and add some real filter controls using react libs
+    question: do we need "featured" toggle switch right now?
+        are we doing "featured" for phase 1?
+-fix robots.txt (set it up to handle SEO)
+-
+
+-TODO: clarify the breakpoint options: just 2 for phase 1
+   -

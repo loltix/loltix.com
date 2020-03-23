@@ -1,0 +1,15 @@
+@import "../styles/variables.scss";
+
+.filters {
+  color: $white;
+  display: flex;
+  justify-content: space-between;
+  min-width: 360px;
+  margin-top: $halfSpacing;
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .filters {
+    margin: 0 0 $spacing 0;
+  }
+}

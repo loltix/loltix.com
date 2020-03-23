@@ -1,0 +1,45 @@
+@import "../styles/variables.scss";
+
+.headerMenu {
+  overflow: hidden;
+  background-color: #e8e7ec;
+  ul {
+    overflow: hidden;
+    float: right;
+    margin: $spacing 0;
+    li {
+      list-style-type: none;
+      padding: 0;
+      float: left;
+      margin-left: 35px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    li.active a {
+      color: $primaryOrange;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .headerMenu {
+    justify-content: center;
+    display: none;
+    &.showMobileMenu {
+      display: flex;
+    }
+    ul {
+      padding: 0;
+      text-align: center;
+      li {
+        float: none;
+        /*margin-bottom: $halfSpacing;*/
+        margin: $halfSpacing 0;
+      }
+    }
+  }
+}
