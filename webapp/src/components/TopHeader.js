@@ -11,7 +11,7 @@ export default function TopHeader({ onMenuButtonClick }) {
     <div className="container topHeader">
       <div className="topHeaderContent">
         <div className="logoArea">
-          <img src="/logo-long-cord.png" className="logo" alt="logo" />
+          <img src={`${process.env.PUBLIC_URL}/logo-long-cord.png`} className="logo" alt="logo" />
           <div className="discoverText">Discover the best comedy near you.</div>
         </div>
         <div className="searchFields">
