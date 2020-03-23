@@ -1,0 +1,112 @@
+@import "../styles/variables.scss";
+
+.topHeader {
+  background-color: black;
+  min-height: 110px;
+  overflow: hidden;
+  user-select: none;
+  .topHeaderContent {
+    color: $mutedOrange;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 1px solid $mutedOrange;
+    padding-bottom: $halfSpacing;
+    padding-top: $halfSpacing;
+    .logoArea {
+      display: flex;
+      align-items: flex-end;
+    }
+    .logo {
+      margin-right: $halfSpacing;
+      width: 75px;
+      height: 75px;
+      transform: translateY(13px);
+    }
+    .discoverText {
+      font-size: $baseFontSize;
+    }
+    .menuBarsIcon {
+      display: none;
+    }
+    .searchFields {
+      min-width: 400px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      input {
+        height: 25px;
+        margin-right: $halfSpacing;
+        padding-left: 30px;
+        box-sizing: border-box;
+      }
+      input.searchInput {
+        width: 200px;
+        margin-right: 0;
+      }
+      .searchInputIcon {
+        transform: translateX(25px);
+        color: $lightGray;
+        margin-bottom: -5px;
+        margin-top: 4px;
+      }
+    }
+    button.searchButton {
+      border: 1px solid $white;
+      background-color: $mediumGray;
+      border-radius: 5px;
+      width: 25px;
+      height: 25px;
+      color: $white;
+      padding: 0;
+    }
+    button.searchButton:hover {
+      cursor: pointer;
+    }
+    .locationFieldAndSearchButton {
+      display: flex;
+      margin-top: $halfSpacing;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .container.topHeader {
+    min-height: unset;
+    padding-bottom: 10px;
+    .topHeaderContent {
+      padding: $halfSpacing 0 0 0;
+      .discoverText {
+        display: none;
+      }
+      .logo {
+        margin: 0;
+        transform: translateY(3px);
+      }
+      .menuBarsIcon {
+        display: block;
+        height: 25px;
+        width: 25px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .menuBarsIcon,
+      .searchFields {
+        margin-bottom: $halfSpacing;
+      }
+      .searchFields {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: $spacing;
+        min-width: unset;
+        & > :first-child {
+          display: none;
+        }
+        input {
+          width: 130px;
+        }
+      }
+    }
+  }
+}

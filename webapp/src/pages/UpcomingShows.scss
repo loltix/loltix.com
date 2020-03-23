@@ -1,0 +1,29 @@
+@import "../styles/variables.scss";
+
+.upcomingShows.container {
+  min-height: 1000px;
+  background-color: $primaryMauve;
+  padding-top: $spacing;
+  .upcomingShowsHeader {
+    display: flex;
+    justify-content: space-between;
+    //margin-bottom: $halfSpacing;
+  }
+  .searchResultsContainer {
+    min-height: 500px;
+    background-color: $white;
+    padding: $halfSpacing $spacing;
+    .count {
+      font-weight: bold;
+      font-size: $baseFontSize;
+      border-bottom: 1px solid $lightGray;
+      padding-bottom: $halfSpacing;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .upcomingShowsHeader {
+    flex-direction: column;
+  }
+}

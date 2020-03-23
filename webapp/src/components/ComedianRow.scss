@@ -1,0 +1,70 @@
+@import "../styles/variables.scss";
+
+.comedianRow {
+  border-bottom: 1px solid $lightGray;
+  padding: 15px 0;
+  display: flex;
+  min-height: 100px;
+  margin: 0 $spacing;
+  justify-content: space-between;
+  .imageAndName,
+  .styleAndBio,
+  .videoBox {
+    font-size: $baseFontSize;
+    color: #888;
+    margin-left: $halfSpacing;
+  }
+  .imageAndName {
+    display: flex;
+    min-width: 250px;
+    margin-left: 0;
+  }
+  .nameAndLocation {
+    margin-left: $halfSpacing;
+    .name {
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: $halfSpacing;
+    }
+    .yearsExperience {
+      margin-bottom: $halfSpacing;
+    }
+    .location {
+      font-weight: bold;
+      color: black;
+    }
+  }
+  .styleAndBio {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    h5 {
+      color: black;
+      margin: 0 0 $halfSpacing 0;
+    }
+    .comedyStyle {
+      margin-bottom: $halfSpacing;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .comedianRow {
+    flex-direction: column;
+    margin-left: 0;
+  }
+  .comedianRow .imageAndName,
+  .comedianRow .styleAndBio,
+  .comedianRow .videoBox {
+    margin-left: 0px;
+    margin-top: $spacing;
+  }
+  .comedianRow .imageAndName {
+    margin-top: 0;
+  }
+  .comedianRow .videoBox {
+    display: none;
+  }
+}

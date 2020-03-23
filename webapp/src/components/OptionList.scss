@@ -1,0 +1,11 @@
+@import "../styles/variables.scss";
+
+.optionList {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing;
+  color: $mediumGray;
+  label {
+    margin-bottom: 5px;
+  }
+}

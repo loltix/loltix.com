@@ -1,0 +1,125 @@
+@import "../styles/variables.scss";
+
+.eventDetails.container {
+  min-height: 1000px;
+  background-color: $primaryMauve;
+  padding-top: $spacing;
+  .topSection {
+    //border: 1px solid red;
+    display: flex;
+    color: $white;
+    margin-bottom: $spacing;
+    .rightSide {
+      display: flex;
+      flex-direction: column;
+      padding: 0 $spacing;
+      width: 100%;
+      .performerName {
+        text-decoration: underline;
+        font-size: $baseFontSize * 2.5;
+        font-weight: bold;
+      }
+
+      .datesAndLocation {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        //border: 1px solid red;
+        width: 100%;
+        height: 100%;
+        .dates,
+        .location {
+          //border: 1px solid green;
+          width: 50%;
+        }
+        .dates {
+          margin-top: $spacing * 1.5;
+          font-size: $baseFontSize * 1.5;
+        }
+        .venueName {
+          text-decoration: underline;
+          font-size: $baseFontSize * 1.5;
+        }
+      }
+    }
+    .performerPhoto {
+      height: 200px;
+    }
+  }
+  .mainBody {
+    background-color: $white;
+    min-height: 1000px;
+
+    h3.sectionHeader {
+      &:first-child {
+        margin-top: 0;
+      }
+      text-transform: uppercase;
+      font-size: $baseFontSize * 1.5;
+      font-weight: bold;
+      margin-bottom: $halfSpacing;
+    }
+
+    .mainColumns {
+      display: flex;
+      min-height: 400px;
+      > div {
+        width: 50%;
+        padding: $spacing;
+      }
+
+      .shareThis {
+        display: flex;
+        align-items: center;
+        .socialLinks {
+          img {
+            width: 20px;
+            height: 20px;
+            margin-right: $halfSpacing;
+          }
+        }
+      }
+
+      p,
+      .details,
+      .showTimes {
+        font-size: $baseFontSize;
+        color: $mediumGray;
+      }
+      .showTimes {
+        > div {
+          margin-bottom: 5px;
+        }
+        a {
+          color: $primaryOrange;
+          font-weight: bold;
+          font-size: $baseFontSize;
+          margin-left: $spacing;
+        }
+      }
+
+      .performers {
+        display: flex;
+        flex-wrap: wrap;
+        .performer {
+          min-width: 100px;
+          width: 100px;
+          height: 100px;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          border: 1px solid #666;
+          margin-right: $spacing;
+          margin-bottom: $spacing;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .otherShowsYouMightLike {
+      padding: $spacing;
+      border-top: 1px solid black;
+    }
+  }
+}

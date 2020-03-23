@@ -1,0 +1,62 @@
+@import "../styles/variables.scss";
+
+.comedians.container {
+  min-height: 1000px;
+  background-color: $primaryMauve;
+  padding-top: $spacing;
+  .comediansHeader {
+    display: flex;
+    justify-content: space-between;
+    .sortBy {
+      margin-top: $halfSpacing;
+      label {
+        color: $white;
+        font-size: $baseFontSize;
+        text-transform: uppercase;
+        margin-right: $halfSpacing;
+      }
+    }
+  }
+  .comedianResultContainer {
+    background-color: $white;
+    padding: $spacing;
+    .topSection .countSection {
+      margin-bottom: $spacing;
+      font-weight: bold;
+      font-size: $baseFontSize;
+    }
+    .refineSearch {
+      width: 180px;
+      border-right: 1px solid #b5b5b5;
+    }
+    .newSearchInput {
+      padding: 5px;
+    }
+    h4 {
+      margin-bottom: $halfSpacing;
+      color: black;
+    }
+    .comedianList {
+      display: flex;
+      .refineSearch {
+        padding-right: $halfSpacing;
+      }
+    }
+    .soloCheckbox {
+      font-weight: bold;
+      font-size: $baseFontSize;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .comedianList {
+    flex-direction: column;
+  }
+  .comedianList .refineSearch {
+    flex-direction: row;
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid $lightGray;
+  }
+}
