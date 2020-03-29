@@ -1,0 +1,76 @@
+@import "../styles/variables.scss";
+
+.comedianBio.container {
+  min-height: 1000px;
+  background-color: $primaryMauve;
+  padding-top: $spacing;
+  font-size: $baseFontSize;
+  .comedianBioContainer {
+    background-color: $white;
+    padding: $spacing;
+    border-bottom: 2px solid $lightGray;
+    .headerSection {
+      margin-bottom: $halfSpacing;
+      .name {
+        font-size: 40px;
+        font-weight: bold;
+      }
+      .genres {
+        text-decoration: underline;
+        color: $mediumGray;
+      }
+    }
+
+    .comedianDetails {
+      display: flex;
+      .photoArea {
+        border: 1px solid $mediumGray;
+
+        .underPhotoDetails {
+          padding: $spacing;
+          .yearsExperience,
+          .location {
+            color: $mediumGray;
+            strong {
+              color: black;
+            }
+            margin-bottom: $halfSpacing;
+          }
+          .icons {
+            img {
+              width: 20px;
+              height: 20px;
+            }
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: $spacing;
+          }
+        }
+      }
+      .rightSide {
+        margin: 0 $halfSpacing;
+        width: 100%;
+        h3 {
+          margin-top: 0;
+          margin-bottom: $halfSpacing;
+          font-size: $baseFontSize * 2;
+        }
+        .bio {
+          border-bottom: 2px solid $lightGray;
+          margin-bottom: $spacing;
+          padding-bottom: $spacing;
+          .bioText {
+            color: $mediumGray;
+            margin-left: 28px;
+          }
+        }
+        .video {
+          .videoLink {
+            width: 350px;
+            margin: $spacing auto;
+          }
+        }
+      }
+    }
+  }
+}

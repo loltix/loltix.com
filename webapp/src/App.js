@@ -5,6 +5,7 @@ import UpcomingShows from "./pages/UpcomingShows";
 import Venues from "./pages/Venues";
 import About from "./pages/About";
 import Comedians from "./pages/Comedians";
+import ComedianBio from "./pages/ComedianBio";
 import EventDetails from "./pages/EventDetails";
 
 import TopHeader from "./components/TopHeader";
@@ -32,6 +33,10 @@ export default function App() {
           <Route path={`${process.env.PUBLIC_URL}/comedians`}>
             <Comedians />
           </Route>
+          <Route path={`${process.env.PUBLIC_URL}/comedian/:comedianId`}>
+            <ComedianBio />
+          </Route>
+
           <Route path={`${process.env.PUBLIC_URL}/about`}>
             <About />
           </Route>

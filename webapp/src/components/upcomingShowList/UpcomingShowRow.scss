@@ -1,0 +1,59 @@
+@import "../../styles/variables.scss";
+
+.upcomingShowRow {
+  min-height: 80px;
+  display: flex;
+  border-bottom: 1px solid $lightGray;
+  margin-bottom: $spacing;
+  padding-bottom: $spacing;
+  .dates {
+    background-color: $primaryMauve;
+    color: white;
+    font-weight: bold;
+    height: 75px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    .monthDay {
+      font-size: $baseFontSize * 1.5;
+    }
+  }
+
+  .rightSide {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .mainDetails {
+      margin-left: $spacing;
+      .venueName {
+        color: $primaryOrange;
+        font-size: $baseFontSize * 1.5;
+        font-weight: bold;
+        margin-bottom: $spacing;
+        .cityState {
+          color: $mediumGray;
+        }
+      }
+      .showNameLine {
+        color: $mediumGray;
+      }
+    }
+    .tickets {
+      margin-left: $spacing;
+      .pickAShow {
+        font-weight: bold;
+        margin-bottom: $halfSpacing;
+      }
+      select {
+        margin-bottom: $halfSpacing;
+      }
+      button.ctaButton {
+        display: block;
+        margin-top: 0;
+        padding: $spacing / 4;
+      }
+    }
+  }
+}

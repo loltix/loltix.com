@@ -1,0 +1,9 @@
+@import "../../styles/variables.scss";
+.upcomingShowList {
+  background-color: $white;
+  padding: $spacing;
+  h3 {
+    font-size: $baseFontSize * 2;
+    margin-top: 0;
+  }
+}
