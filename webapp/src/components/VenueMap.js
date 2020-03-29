@@ -6,13 +6,15 @@ export default function VenueMap({
   centerLat = 32.156,
   centerLong = -110.8775,
   markers = [],
-  height = "300px"
+  height = "300px",
+  zoom = 10
 }) {
   return (
     <div className="venueMap">
       <Map
         center={[centerLat, centerLong]}
-        zoom={10}
+        zoom={zoom}
+        scrollWheelZoom={false}
         style={{ width: "100%", height }}
         // style={{ minWidth: "300px", height: "100vh" }}
       >

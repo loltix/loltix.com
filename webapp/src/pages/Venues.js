@@ -1,9 +1,11 @@
 import React from "react";
 import "./Venues.scss";
 import Map from "../components/VenueMap";
+import { useHistory } from "react-router-dom";
 
 const fakeData = [
   {
+    id: "the-0",
     name: "The 0",
     position: [32.1, -110.8],
     location: "Tucson, AZ",
@@ -14,6 +16,7 @@ const fakeData = [
     logoUrl: "https://i.picsum.photos/id/513/120/120.jpg"
   },
   {
+    id: "laffs-comedy-caffe",
     name: "Laffs Comedy Caffé",
     position: [32.2, -110.6],
     location: "Tucson, AZ",
@@ -24,6 +27,7 @@ const fakeData = [
     logoUrl: "https://i.picsum.photos/id/512/120/120.jpg"
   },
   {
+    id: "fox-theatre",
     name: "Fox Theatre",
     position: [32.0001, -110.9],
     location: "Tucson, AZ",
@@ -34,6 +38,7 @@ const fakeData = [
     logoUrl: "https://i.picsum.photos/id/511/120/120.jpg"
   },
   {
+    id: "club-congress",
     name: "Club Congress",
     position: [32.3, -111],
     location: "Tucson, AZ",
@@ -44,6 +49,7 @@ const fakeData = [
     logoUrl: "https://i.picsum.photos/id/519/120/120.jpg"
   },
   {
+    id: "rialto-theatre",
     name: "Rialto Theatre",
     position: [32.0, -111.001],
     location: "Tucson, AZ",
@@ -56,6 +62,7 @@ const fakeData = [
 ];
 
 export default function Venues() {
+  const history = useHistory();
   return (
     <section>
       <div className="container venues">
@@ -63,12 +70,18 @@ export default function Venues() {
           <h2>Venues</h2>
         </div>
         <div>
-        {/*<div style={{ display: "flex", "flex-direction": "row" }}>*/}
+          {/*<div style={{ display: "flex", "flex-direction": "row" }}>*/}
           <Map markers={fakeData} />
           <div className="venueList">
             {fakeData.map(venue => {
               return (
-                <div key={venue.name} className="venueRow">
+                <div
+                  key={venue.name}
+                  className="venueRow"
+                  onClick={() => {
+                    history.push(`${process.env.PUBLIC_URL}/venue/${venue.id}`);
+                  }}
+                >
                   <div className="firstRow">
                     <span className="name">{venue.name}</span>
                     <span className="location"> - {venue.location}</span>

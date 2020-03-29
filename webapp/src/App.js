@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Comedians from "./pages/Comedians";
 import ComedianBio from "./pages/ComedianBio";
 import EventDetails from "./pages/EventDetails";
+import VenueDetails from "./pages/VenueDetails";
 
 import TopHeader from "./components/TopHeader";
 import HeaderMenu from "./components/HeaderMenu";
@@ -30,6 +31,10 @@ export default function App() {
           <Route path={`${process.env.PUBLIC_URL}/venues`}>
             <Venues />
           </Route>
+          <Route path={`${process.env.PUBLIC_URL}/venue/:venueId`}>
+            <VenueDetails />
+          </Route>
+
           <Route path={`${process.env.PUBLIC_URL}/comedians`}>
             <Comedians />
           </Route>
