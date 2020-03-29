@@ -26,7 +26,9 @@ DONE-fix the cord at the header
         venue details
         other shows you might like carousel
     comedian detail page
-        NOTE: this has a mobile comp page
+        -Desktop comp
+        -other performers you might like
+        -mobile comp
     venue detail page
 
 -connect up to slack

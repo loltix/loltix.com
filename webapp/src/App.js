@@ -5,6 +5,7 @@ import UpcomingShows from "./pages/UpcomingShows";
 import Venues from "./pages/Venues";
 import About from "./pages/About";
 import Comedians from "./pages/Comedians";
+import ComedianBio from "./pages/ComedianBio";
 import EventDetails from "./pages/EventDetails";
 
 import TopHeader from "./components/TopHeader";
@@ -26,19 +27,26 @@ export default function App() {
       </header>
       <div>
         <Switch>
-          <Route path="/venues">
+          <Route path={`${process.env.PUBLIC_URL}/venues`}>
             <Venues />
           </Route>
-          <Route path="/comedians">
+          <Route path={`${process.env.PUBLIC_URL}/comedians`}>
             <Comedians />
           </Route>
-          <Route path="/about">
+          <Route path={`${process.env.PUBLIC_URL}/comedian/:comedianId`}>
+            <ComedianBio />
+          </Route>
+
+          <Route path={`${process.env.PUBLIC_URL}/about`}>
             <About />
           </Route>
-          <Route path="/event/:eventId">
+          <Route path={`${process.env.PUBLIC_URL}/event/:eventId`}>
             <EventDetails />
           </Route>
-          <Route path="/">
+          <Route path={`${process.env.PUBLIC_URL}/events`}>
+            <UpcomingShows />
+          </Route>
+          <Route path={`${process.env.PUBLIC_URL}/`}>
             <UpcomingShows />
           </Route>
         </Switch>

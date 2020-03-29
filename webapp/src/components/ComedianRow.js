@@ -1,7 +1,9 @@
 import React from "react";
 import "./ComedianRow.scss";
+import { useHistory } from "react-router-dom";
 
 export default function ComedianRow({
+  id,
   imageUrl,
   name,
   yearsExperience,
@@ -10,6 +12,7 @@ export default function ComedianRow({
   bioAndCredits,
   videoImageUrl
 }) {
+  const history = useHistory();
   return (
     <div className="comedianRow">
       <div className="imageAndName">
@@ -30,7 +33,14 @@ export default function ComedianRow({
         <div className="comedyStyle">{comedyStyles}</div>
         <h5>BIO & CREDITS</h5>
         <div className="bioAndCredits">{bioAndCredits}</div>
-        <button className="ctaButton">View Profile</button>
+        <button
+          className="ctaButton"
+          onClick={() => {
+            history.push(`${process.env.PUBLIC_URL}/comedian/${id}`);
+          }}
+        >
+          View Profile
+        </button>
       </div>
       <div className="videoBox">
         <img src={videoImageUrl} alt="video profile" />

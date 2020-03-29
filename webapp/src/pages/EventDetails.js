@@ -59,14 +59,23 @@ export default function EventDetails() {
 
               <div className="shareThis">
                 <div className="socialLinks">
-                  <a href="#">
-                    <img src="/images/email.png" />
+                  <a href="/">
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/email.png`}
+                      alt="email"
+                    />
                   </a>
-                  <a href="#">
-                    <img src="/images/facebook500.png" />
+                  <a href="/">
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/facebook500.png`}
+                      alt="facebook"
+                    />
                   </a>
-                  <a href="#">
-                    <img src="/images/twitter.png" />
+                  <a href="/">
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/twitter.png`}
+                      alt="twitter"
+                    />
                   </a>
                 </div>
                 <button className="secondaryButton">+ ICAL</button>
@@ -88,16 +97,16 @@ export default function EventDetails() {
               <h3 className="sectionHeader">DATES & TIMES</h3>
               <div className="showTimes">
                 <div>
-                  Saturday, Aug 17, 2019 at 7:00 PM <a href="#">Get Tickets</a>
+                  Saturday, Aug 17, 2019 at 7:00 PM <a href="/">Get Tickets</a>
                 </div>
                 <div>
-                  Saturday, Aug 17, 2019 at 7:00 PM <a href="#">Get Tickets</a>
+                  Saturday, Aug 17, 2019 at 7:00 PM <a href="/">Get Tickets</a>
                 </div>
                 <div>
-                  Saturday, Aug 17, 2019 at 7:00 PM <a href="#">Get Tickets</a>
+                  Saturday, Aug 17, 2019 at 7:00 PM <a href="/">Get Tickets</a>
                 </div>
                 <div>
-                  Saturday, Aug 17, 2019 at 7:00 PM <a href="#">Get Tickets</a>
+                  Saturday, Aug 17, 2019 at 7:00 PM <a href="/">Get Tickets</a>
                 </div>
               </div>
 
@@ -114,13 +123,22 @@ export default function EventDetails() {
               <h3 className="sectionHeader">PERFORMERS</h3>
               <div className="performers">
                 <div className="performer">
-                  <img src="https://www.fillmurray.com/100/100" />
+                  <img
+                    src="https://www.fillmurray.com/100/100"
+                    alt="performer 1"
+                  />
                 </div>
                 <div className="performer">
-                  <img src="https://www.fillmurray.com/101/100" />
+                  <img
+                    src="https://www.fillmurray.com/101/100"
+                    alt="performer 2"
+                  />
                 </div>
                 <div className="performer">
-                  <img src="https://www.fillmurray.com/102/100" />
+                  <img
+                    src="https://www.fillmurray.com/102/100"
+                    alt="performer 3"
+                  />
                 </div>
               </div>
             </div>
@@ -136,6 +154,7 @@ export default function EventDetails() {
               <br />
 
               <iframe
+                title="external video"
                 width="100%"
                 height="250"
                 src="https://www.youtube.com/embed/D80NLUcixPg"

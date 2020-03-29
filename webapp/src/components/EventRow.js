@@ -18,7 +18,7 @@ export default withRouter(function EventRow({ history, event }) {
       <div
         className="headlineAndDescription"
         onClick={() => {
-          history.push(`/event/${event.id}`);
+          history.push(`${process.env.PUBLIC_URL}/event/${event.id}`);
         }}
       >
         <div className="headline">{event.name}</div>

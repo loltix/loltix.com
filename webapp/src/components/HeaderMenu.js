@@ -11,17 +11,19 @@ export default function HeaderMenu({ open, setMenuOpen }) {
   return (
     <div className={`container headerMenu ${open ? "showMobileMenu" : ""}`}>
       <ul>
-        <li className={location.pathname === "/" ? "active" : ""}>
-          <Link to="/">Events Calendar</Link>
+        <li className={location.pathname.includes("/events") ? "active" : ""}>
+          <Link to={`${process.env.PUBLIC_URL}/events`}>Events Calendar</Link>
         </li>
-        <li className={location.pathname === "/comedians" ? "active" : ""}>
-          <Link to="/comedians">Comedians</Link>
+        <li
+          className={location.pathname.includes("/comedians") ? "active" : ""}
+        >
+          <Link to={`${process.env.PUBLIC_URL}/comedians`}>Comedians</Link>
         </li>
-        <li className={location.pathname === "/venues" ? "active" : ""}>
-          <Link to="/venues">Venues</Link>
+        <li className={location.pathname.includes("/venues") ? "active" : ""}>
+          <Link to={`${process.env.PUBLIC_URL}/venues`}>Venues</Link>
         </li>
-        <li className={location.pathname === "/about" ? "active" : ""}>
-          <a href="/about">About LOL tix</a>
+        <li className={location.pathname.includes("/about") ? "active" : ""}>
+          <Link to={`${process.env.PUBLIC_URL}/about`}>About LOL tix</Link>
         </li>
       </ul>
     </div>
