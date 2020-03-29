@@ -24,10 +24,10 @@ DONE-fix the cord at the header
     event detail page
         white box with orange ticket button link at the top
         venue details
-        other shows you might like carousel
+        DONE other shows you might like carousel
     comedian detail page
-        -Desktop comp
-        -other performers you might like
+        DONE-Desktop comp
+        DONE -other performers you might like carousel
         -mobile comp
     venue detail page
 

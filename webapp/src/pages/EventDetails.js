@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./EventDetails.scss";
 import { useParams } from "react-router-dom";
 import VenueMap from "../components/VenueMap";
+import Carousel from "../components/Carousel";
 
 const fakeEventData = {
   name: "Frankie Quinones",
@@ -20,6 +21,34 @@ const fakeEventData = {
   },
   showDates: ["Saturday, August 17 at 9:30 PM"]
 };
+
+const otherShows = [
+  {
+    image: "https://www.fillmurray.com/100/100",
+    name: "James Brown",
+    link: "#"
+  },
+  {
+    image: "https://www.fillmurray.com/100/102",
+    name: "Phil Murray",
+    link: "#"
+  },
+  {
+    image: "https://www.fillmurray.com/100/104",
+    name: "Chris Brown",
+    link: "#"
+  },
+  {
+    image: "https://www.fillmurray.com/100/103",
+    name: "Darius Rucker",
+    link: "#"
+  },
+  {
+    image: "https://www.fillmurray.com/100/101",
+    name: "Gabriel Iglesias",
+    link: "#"
+  }
+];
 
 export default function EventDetails() {
   const { eventId } = useParams();
@@ -164,9 +193,10 @@ export default function EventDetails() {
               ></iframe>
             </div>
           </div>
-          <div className="otherShowsYouMightLike">
-            Other shows you might like...
-          </div>
+          <Carousel
+            items={otherShows}
+            title="OTHER SHOWS YOU MIGHT LIKE"
+          />
         </div>
       </div>
     </section>
