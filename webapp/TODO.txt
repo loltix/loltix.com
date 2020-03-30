@@ -22,18 +22,18 @@ DONE-fix the cord at the header
 -finish the comps for the remaining pages
    DONE venue list
     event detail page
+        DONE other shows you might like carousel
         white box with orange ticket button link at the top
         venue details
-        other shows you might like carousel
     comedian detail page
-        -Desktop comp
-        -other performers you might like
+        DONE-Desktop comp
+        DONE -other performers you might like carousel
         -mobile comp
     venue detail page
+        DONE -add main route
+        DONE-top section
+        DONE-use upcoming shows a component
 
--connect up to slack
--push this up to a repo that Alex has
-    strip out comps and other unneeded stuff.
 -unit test the components that exist right now
 -should you be able to expand/collapse the filter ("refine search" options)
 
