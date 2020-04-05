@@ -16,6 +16,12 @@ export default function UpcomingShowRow({ show }) {
           <div className="showNameLine">{show.showNameLine1}</div>
           <div className="showNameLine">{show.showNameLine2}</div>
         </div>
+        <div className="mobileOnlyTicketsLink">
+          <img
+            src={`${process.env.PUBLIC_URL}/images/arrow-right.png`}
+            alt="arrow"
+          />
+        </div>
         <div className="tickets">
           <div className="pickAShow">Pick A Show:</div>
           <select>

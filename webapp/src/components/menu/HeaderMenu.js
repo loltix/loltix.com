@@ -3,13 +3,18 @@ import { Link, useLocation } from "react-router-dom";
 
 import "./HeaderMenu.scss";
 
-export default function HeaderMenu({ open, setMenuOpen }) {
+export default function HeaderMenu({ open, setMenuOpen, darkBg = false }) {
   const location = useLocation();
   useEffect(() => {
+    // close the menu whenever the URL changes
     setMenuOpen(false);
   }, [location, setMenuOpen]);
   return (
-    <div className={`container headerMenu ${open ? "showMobileMenu" : ""}`}>
+    <div
+      className={`container headerMenu ${open ? "showMobileMenu" : ""} ${
+        darkBg ? "dark" : ""
+      }`}
+    >
       <ul>
         <li className={location.pathname.includes("/events") ? "active" : ""}>
           <Link to={`${process.env.PUBLIC_URL}/events`}>Events Calendar</Link>

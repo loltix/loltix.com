@@ -20,13 +20,13 @@ export default function Carousel({ items, title }) {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 500,
         settings: {
           slidesToShow: 2
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 380,
         settings: {
           slidesToShow: 1
         }

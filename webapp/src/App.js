@@ -10,7 +10,7 @@ import EventDetails from "./pages/EventDetails";
 import VenueDetails from "./pages/VenueDetails";
 
 import TopHeader from "./components/TopHeader";
-import HeaderMenu from "./components/HeaderMenu";
+import HeaderMenu from "./components/menu/HeaderMenu";
 
 import "./App.scss";
 

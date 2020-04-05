@@ -74,3 +74,53 @@
     }
   }
 }
+
+@media (max-width: $mobileBreakpoint) {
+  .comedianBio.container {
+    padding: 0;
+    background-color: $white;
+    .comedianBioContainer {
+      border-bottom: 0;
+      .headerSection {
+        margin-bottom: $spacing;
+        .name {
+          font-size: $baseFontSize * 2;
+        }
+      }
+      .comedianDetails {
+        flex-direction: column;
+        .photoArea {
+          width: 100%;
+          text-align: center;
+          border: 0;
+          .underPhotoDetails {
+            display: none;
+          }
+        }
+        .rightSide {
+          //display: none;
+          .bio {
+            margin-top: $halfSpacing;
+            border: 0;
+            padding: 0;
+            .bioText {
+              margin-right: 28px;
+            }
+          }
+          .video {
+            .videoLink {
+              width: 300px;
+            }
+          }
+        }
+      }
+    }
+    .carousel {
+      margin-top: $spacing;
+      h3 {
+        font-size: $baseFontSize * 1.2;
+        text-align: center;
+      }
+    }
+  }
+}

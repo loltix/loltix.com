@@ -7,3 +7,14 @@
     margin-top: 0;
   }
 }
+
+@media (max-width: $mobileBreakpoint) {
+  .upcomingShowList {
+    padding: 0;
+    h3 {
+      font-size: $baseFontSize * 1.4;
+      margin-top: 0;
+      padding-left: $halfSpacing;
+    }
+  }
+}

@@ -40,6 +40,9 @@
         color: $mediumGray;
       }
     }
+    .mobileOnlyTicketsLink {
+      display: none;
+    }
     .tickets {
       margin-left: $spacing;
       .pickAShow {
@@ -53,6 +56,53 @@
         display: block;
         margin-top: 0;
         padding: $spacing / 4;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .upcomingShowRow {
+    padding: 0;
+    border-top: 2px solid $mediumGray;
+    border-bottom: 2px solid $mediumGray;
+    min-height: unset;
+    margin-bottom: $spacing / 4;
+    .dates {
+      height: 50px;
+      .days {
+        display: none;
+      }
+    }
+    .rightSide {
+      .mainDetails {
+        margin-left: $halfSpacing;
+        .venueName {
+          font-size: $baseFontSize;
+          .cityState {
+            display: block;
+          }
+        }
+        .showNameLine {
+          display: none;
+        }
+      }
+      .mobileOnlyTicketsLink {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        background-color: $primaryOrange;
+        img {
+          height: 25px;
+          filter: contrast(10);
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .tickets {
+        display: none;
       }
     }
   }

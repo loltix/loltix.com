@@ -1,8 +1,19 @@
-@import "../styles/variables.scss";
+@import "../../styles/variables.scss";
 
 .headerMenu {
   overflow: hidden;
   background-color: #e8e7ec;
+  &.dark {
+    background-color: black;
+    color: $white;
+    ul {
+      li {
+        a {
+          color: $primaryOrange;
+        }
+      }
+    }
+  }
   ul {
     overflow: hidden;
     float: right;
