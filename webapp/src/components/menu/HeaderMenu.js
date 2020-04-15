@@ -27,9 +27,6 @@ export default function HeaderMenu({ open, setMenuOpen, darkBg = false }) {
         <li className={location.pathname.includes("/venues") ? "active" : ""}>
           <Link to={`${process.env.PUBLIC_URL}/venues`}>Venues</Link>
         </li>
-        <li className={location.pathname.includes("/about") ? "active" : ""}>
-          <Link to={`${process.env.PUBLIC_URL}/about`}>About LOL tix</Link>
-        </li>
       </ul>
     </div>
   );

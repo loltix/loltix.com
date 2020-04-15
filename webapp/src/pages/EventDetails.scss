@@ -70,6 +70,31 @@
         padding: $spacing;
       }
 
+      .rightSide {
+        .venueSection {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: $halfSpacing;
+          .venueDetails {
+            color: $mediumGray;
+            font-size: $baseFontSize;
+            .sectionHeader {
+              color: black;
+            }
+            .venueName {
+              font-weight: bold;
+              color: $primaryOrange;
+            }
+          }
+          .venueLogo {
+            img {
+              width: 100px;
+            }
+            margin-left: $halfSpacing;
+          }
+        }
+      }
+
       .shareThis {
         display: flex;
         align-items: center;
@@ -113,8 +138,23 @@
           border: 1px solid #666;
           margin-right: $spacing;
           margin-bottom: $spacing;
+          img {
+            width: 100px;
+            height: 100px;
+          }
           &:hover {
             cursor: pointer;
+          }
+        }
+        &.small {
+          .performer {
+            min-width: 50px;
+            width: 50px;
+            height: 50px;
+            img {
+              width: 50px;
+              height: 50px;
+            }
           }
         }
       }

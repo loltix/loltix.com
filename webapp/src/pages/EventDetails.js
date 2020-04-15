@@ -118,6 +118,9 @@ export default function EventDetails() {
     );
   }
 
+  const smallPerformers =
+    eventData.performers.length && eventData.performers.length >= 3;
+
   return (
     <section>
       <div className="container eventDetails">
@@ -217,7 +220,7 @@ export default function EventDetails() {
               </div>
 
               <h3 className="sectionHeader">PERFORMERS</h3>
-              <div className="performers">
+              <div className={`performers ${smallPerformers ? "small" : ""}`}>
                 {eventData.performers.map((performer, i) => {
                   return (
                     <div className="performer" key={i}>
@@ -228,8 +231,18 @@ export default function EventDetails() {
               </div>
             </div>
             <div className="rightSide">
-              <h3 className="sectionHeader">VENUE</h3>
-              <div className="venue">venue stuff here</div>
+              <div className="venueSection">
+                <div className="venueDetails">
+                  <h3 className="sectionHeader">VENUE</h3>
+                  <div className="venueName">{eventData.venue.name}</div>
+                  <div>{eventData.venue.address}</div>
+                  <div>{eventData.venue.webUrl}</div>
+                  <div>{eventData.venue.phoneNumber}</div>
+                </div>
+                <div className="venueLogo">
+                  <img src={eventData.venue.logoUrl} alt="Venue" />
+                </div>
+              </div>
 
               <VenueMap
                 centerLat={eventData.venue.position[0]}
