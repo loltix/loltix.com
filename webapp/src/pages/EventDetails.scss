@@ -4,6 +4,9 @@
   min-height: 1000px;
   background-color: $primaryMauve;
   padding-top: $spacing;
+  .stickyTicketLink {
+    display: none;
+  }
   .topSection {
     //border: 1px solid red;
     display: flex;
@@ -169,6 +172,23 @@
 @media (max-width: $mobileBreakpoint) {
   .container.eventDetails {
     padding: 0;
+    .stickyTicketLink {
+      display: block;
+      position: sticky;
+      bottom: 0;
+      height: 30px;
+      background-color: $primaryOrange;
+      width: 100%;
+      z-index: 1000;
+      text-align: center;
+      a {
+        color: $white;
+        text-decoration: none;
+        padding-top: 6px;
+        width: 100%;
+        display: block;
+      }
+    }
     .topSection {
       flex-direction: column;
       img.performerPhoto {
@@ -180,6 +200,7 @@
       }
       .rightSide {
         padding-top: $halfSpacing;
+        box-sizing: border-box;
         .datesAndLocation {
           .dates {
             margin-top: $spacing / 4;

@@ -189,6 +189,9 @@ export default function EventDetails() {
             items={eventData.otherShows}
             title="OTHER SHOWS YOU MIGHT LIKE"
           />
+          <div className="stickyTicketLink">
+            <a href="/">TICKETS $20+</a>
+          </div>
         </div>
       </div>
     </section>
