@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./EventDetails.scss";
 import { useParams } from "react-router-dom";
 import VenueMap from "../components/VenueMap";
 import Carousel from "../components/Carousel";
+import Skeleton from "react-loading-skeleton";
 
 const fakeEventData = {
   name: "Frankie Quinones",
@@ -57,26 +58,50 @@ export default function EventDetails() {
     window.scrollTo(0, 0);
   }, [eventId]);
 
+  const [eventData, setEventData] = useState(null);
+  useEffect(() => {
+    setTimeout(() => {
+      setEventData(fakeEventData);
+    }, 1000);
+  });
+
+  if (!eventData) {
+    return (
+      <section>
+        <div className="container eventDetails">
+          <div className="topSection">
+            <div style={{ width: "100%" }}>
+              <Skeleton height={200} />
+            </div>
+          </div>
+          <div className="mainBody">
+            <div style={{ width: "100%" }}>
+              <Skeleton height={700} />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section>
       <div className="container eventDetails">
         <div className="topSection">
           <img
-            src={fakeEventData.imageUrl}
+            src={eventData.imageUrl}
             alt="event performer"
             className="performerPhoto"
           />
           <div className="rightSide">
-            <div className="performerName">{fakeEventData.name}</div>
+            <div className="performerName">{eventData.name}</div>
             <div className="datesAndLocation">
               <div className="dates">
-                {fakeEventData.dateStart} - {fakeEventData.dateEnd}
+                {eventData.dateStart} - {eventData.dateEnd}
               </div>
               <div className="location">
-                <div className="venueName">{fakeEventData.venue.name}</div>
-                <div className="venueAddress">
-                  {fakeEventData.venue.address}
-                </div>
+                <div className="venueName">{eventData.venue.name}</div>
+                <div className="venueAddress">{eventData.venue.address}</div>
               </div>
             </div>
           </div>
@@ -193,10 +218,7 @@ export default function EventDetails() {
               ></iframe>
             </div>
           </div>
-          <Carousel
-            items={otherShows}
-            title="OTHER SHOWS YOU MIGHT LIKE"
-          />
+          <Carousel items={otherShows} title="OTHER SHOWS YOU MIGHT LIKE" />
         </div>
       </div>
     </section>

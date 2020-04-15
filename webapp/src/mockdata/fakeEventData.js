@@ -18,7 +18,7 @@ export default [
         times: "8:00 PM, 9:30 PM"
       }
     ],
-    ticketPrice: "12.50"
+    ctaText: "TICKETS $12.50+"
   },
   {
     id: "2222",
@@ -39,7 +39,7 @@ export default [
         times: "8:00 PM, 9:30 PM"
       }
     ],
-    ticketPrice: "12.50"
+    ctaText: "TICKETS $12.50+"
   },
   {
     id: "213213",
@@ -59,7 +59,7 @@ export default [
         times: "8:00 PM, 9:30 PM"
       }
     ],
-    ticketPrice: "12.50"
+    ctaText: "TICKETS $12.50+"
   },
   {
     id: "4444",
@@ -75,6 +75,6 @@ export default [
         times: "8:00 PM, 9:30 PM"
       }
     ],
-    ticketPrice: "12.50"
+    ctaText: "TICKETS $12.50+"
   }
 ];
