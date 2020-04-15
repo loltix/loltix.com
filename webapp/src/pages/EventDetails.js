@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import VenueMap from "../components/VenueMap";
 import Carousel from "../components/Carousel";
 import Skeleton from "react-loading-skeleton";
+import moment from "moment";
 
 const fakeEventData = {
   name: "Frankie Quinones",
@@ -15,41 +16,74 @@ const fakeEventData = {
     position: [32.2, -110.6],
     location: "Tucson, AZ",
     address: "2900 E Broadway Blvd, Tucson, AZ 85716",
-    distance: "3.3mi",
-    description:
-      "Established in 1988, Laffs is the oldest comedy club in Arizona.  The club currently hosts open mike night every Thursday and features nationally touring headliners... Friday and Saturday.",
-    logoUrl: "https://i.picsum.photos/id/512/120/120.jpg"
+    logoUrl: "https://i.picsum.photos/id/512/120/120.jpg",
+    webUrl: "http://laffstuscon",
+    phoneNumber: "(520) 323-8869"
   },
-  showDates: ["Saturday, August 17 at 9:30 PM"]
-};
-
-const otherShows = [
-  {
-    image: "https://www.fillmurray.com/100/100",
-    name: "James Brown",
-    link: "#"
-  },
-  {
-    image: "https://www.fillmurray.com/100/102",
-    name: "Phil Murray",
-    link: "#"
-  },
-  {
-    image: "https://www.fillmurray.com/100/104",
-    name: "Chris Brown",
-    link: "#"
-  },
-  {
-    image: "https://www.fillmurray.com/100/103",
-    name: "Darius Rucker",
-    link: "#"
-  },
-  {
-    image: "https://www.fillmurray.com/100/101",
-    name: "Gabriel Iglesias",
-    link: "#"
+  showDates: [
+    { date: "2020-08-17T15:00:27.87+00:20", ticketUrl: "/" },
+    { date: "2020-08-18T15:00:27.87+00:20", ticketUrl: "/" },
+    { date: "2020-08-19T15:00:27.87+00:20", ticketUrl: "/" },
+    { date: "2020-08-20T15:00:27.87+00:20", ticketUrl: "/" }
+  ],
+  details: [
+    "Ages 21+",
+    "General Admission",
+    "Doors open 30 min prior to show",
+    "2 item minimum"
+  ],
+  descriptionText: [
+    "After becoming an accomplished stand up comedian, Chappelle  debuted his own weekly sketch comedy show on Comedy Central called Chappelle's Show.",
+    "In April 2007, Chappelle set a stand up endurance record at the Laugh Factory comedy club, beating comedian Dane Cook's record of three hours and 50 minutes."
+  ],
+  videoLink: "https://www.youtube.com/embed/D80NLUcixPg",
+  performers: [
+    {
+      avatarUrl: "https://www.fillmurray.com/100/100",
+      name: "Performer 1"
+    },
+    {
+      avatarUrl: "https://www.fillmurray.com/100/102",
+      name: "Performer 2"
+    },
+    {
+      avatarUrl: "https://www.fillmurray.com/100/101",
+      name: "Performer 3"
+    }
+  ],
+  otherShows: [
+    {
+      image: "https://www.fillmurray.com/100/100",
+      name: "James Brown",
+      link: "#"
+    },
+    {
+      image: "https://www.fillmurray.com/100/102",
+      name: "Phil Murray",
+      link: "#"
+    },
+    {
+      image: "https://www.fillmurray.com/100/104",
+      name: "Chris Brown",
+      link: "#"
+    },
+    {
+      image: "https://www.fillmurray.com/100/103",
+      name: "Darius Rucker",
+      link: "#"
+    },
+    {
+      image: "https://www.fillmurray.com/100/101",
+      name: "Gabriel Iglesias",
+      link: "#"
+    }
+  ],
+  socialLinks: {
+    facebook: "http://facebook.com/asdfasdfasdfsd",
+    twitter: "http://twitter.com/asdfasdfasdfasdfsadf",
+    email: "foo@bar.com"
   }
-];
+};
 
 export default function EventDetails() {
   const { eventId } = useParams();
@@ -113,97 +147,95 @@ export default function EventDetails() {
 
               <div className="shareThis">
                 <div className="socialLinks">
-                  <a href="/">
-                    <img
-                      src={`${process.env.PUBLIC_URL}/images/email.png`}
-                      alt="email"
-                    />
-                  </a>
-                  <a href="/">
-                    <img
-                      src={`${process.env.PUBLIC_URL}/images/facebook500.png`}
-                      alt="facebook"
-                    />
-                  </a>
-                  <a href="/">
-                    <img
-                      src={`${process.env.PUBLIC_URL}/images/twitter.png`}
-                      alt="twitter"
-                    />
-                  </a>
+                  {eventData.socialLinks && eventData.socialLinks.email && (
+                    <a
+                      href={eventData.socialLinks.email}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={`${process.env.PUBLIC_URL}/images/email.png`}
+                        alt="email"
+                      />
+                    </a>
+                  )}
+                  {eventData.socialLinks && eventData.socialLinks.facebook && (
+                    <a
+                      href={eventData.socialLinks.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={`${process.env.PUBLIC_URL}/images/facebook500.png`}
+                        alt="facebook"
+                      />
+                    </a>
+                  )}
+                  {eventData.socialLinks && eventData.socialLinks.twitter && (
+                    <a
+                      href={eventData.socialLinks.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={`${process.env.PUBLIC_URL}/images/twitter.png`}
+                        alt="twitter"
+                      />
+                    </a>
+                  )}
                 </div>
                 <button className="secondaryButton">+ ICAL</button>
                 <button className="secondaryButton">+ GOOGLE CALENDAR</button>
               </div>
 
               <h3 className="sectionHeader">SHOW INFO</h3>
-              <p>
-                After becoming an accomplished stand up comedian, Chappelle
-                debuted his own weekly sketch comedy show on Comedy Central
-                called Chappelle's Show.
-              </p>
-              <p>
-                In April 2007, Chappelle set a stand up endurance record at the
-                Laugh Factory comedy club, beating comedian Dane Cook's record
-                of three hours and 50 minutes.
-              </p>
+              {eventData.descriptionText.map((description, i) => {
+                return <p key={i}>{description}</p>;
+              })}
 
               <h3 className="sectionHeader">DATES & TIMES</h3>
               <div className="showTimes">
-                <div>
-                  Saturday, Aug 17, 2019 at 7:00 PM <a href="/">Get Tickets</a>
-                </div>
-                <div>
-                  Saturday, Aug 17, 2019 at 7:00 PM <a href="/">Get Tickets</a>
-                </div>
-                <div>
-                  Saturday, Aug 17, 2019 at 7:00 PM <a href="/">Get Tickets</a>
-                </div>
-                <div>
-                  Saturday, Aug 17, 2019 at 7:00 PM <a href="/">Get Tickets</a>
-                </div>
+                {eventData.showDates.map((showDate, i) => {
+                  return (
+                    <div key={i}>
+                      {moment(showDate.date).format(
+                        "dddd, MMMM Do [at] h:mm a"
+                      )}{" "}
+                      <a href={showDate.ticketUrl}>Get Tickets</a>
+                    </div>
+                  );
+                })}
               </div>
 
               <h3 className="sectionHeader">DETAILS</h3>
               <div className="details">
                 <ul>
-                  <li>Ages 21+</li>
-                  <li>General Admission</li>
-                  <li>Doors open 30 min prior to show</li>
-                  <li>2 item minimum</li>
+                  {eventData.details.map((detail, i) => {
+                    return <li key={i}>{detail}</li>;
+                  })}
                 </ul>
               </div>
 
               <h3 className="sectionHeader">PERFORMERS</h3>
               <div className="performers">
-                <div className="performer">
-                  <img
-                    src="https://www.fillmurray.com/100/100"
-                    alt="performer 1"
-                  />
-                </div>
-                <div className="performer">
-                  <img
-                    src="https://www.fillmurray.com/101/100"
-                    alt="performer 2"
-                  />
-                </div>
-                <div className="performer">
-                  <img
-                    src="https://www.fillmurray.com/102/100"
-                    alt="performer 3"
-                  />
-                </div>
+                {eventData.performers.map((performer, i) => {
+                  return (
+                    <div className="performer" key={i}>
+                      <img src={performer.avatarUrl} alt={performer.name} />
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <div className="rightSide">
               <h3 className="sectionHeader">VENUE</h3>
               <div className="venue">venue stuff here</div>
+
               <VenueMap
-                centerLat={32.2}
-                centerLong={-110.6}
+                centerLat={eventData.venue.position[0]}
+                centerLong={eventData.venue.position[1]}
                 height="200px"
-                markers={[fakeEventData.venue]}
+                markers={[eventData.venue]}
               />
               <br />
 
@@ -211,14 +243,17 @@ export default function EventDetails() {
                 title="external video"
                 width="100%"
                 height="250"
-                src="https://www.youtube.com/embed/D80NLUcixPg"
+                src={eventData.videoLink}
                 frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
           </div>
-          <Carousel items={otherShows} title="OTHER SHOWS YOU MIGHT LIKE" />
+          <Carousel
+            items={eventData.otherShows}
+            title="OTHER SHOWS YOU MIGHT LIKE"
+          />
         </div>
       </div>
     </section>
