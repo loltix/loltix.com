@@ -9,6 +9,7 @@ export default function HeaderMenu({ open, setMenuOpen, darkBg = false }) {
     // close the menu whenever the URL changes
     setMenuOpen(false);
   }, [location, setMenuOpen]);
+
   return (
     <div
       className={`container headerMenu ${open ? "showMobileMenu" : ""} ${
@@ -16,15 +17,13 @@ export default function HeaderMenu({ open, setMenuOpen, darkBg = false }) {
       }`}
     >
       <ul>
-        <li className={location.pathname.includes("/events") ? "active" : ""}>
+        <li className={location.pathname.includes("/event") ? "active" : ""}>
           <Link to={`${process.env.PUBLIC_URL}/events`}>Events Calendar</Link>
         </li>
-        <li
-          className={location.pathname.includes("/comedians") ? "active" : ""}
-        >
+        <li className={location.pathname.includes("/comedian") ? "active" : ""}>
           <Link to={`${process.env.PUBLIC_URL}/comedians`}>Comedians</Link>
         </li>
-        <li className={location.pathname.includes("/venues") ? "active" : ""}>
+        <li className={location.pathname.includes("/venue") ? "active" : ""}>
           <Link to={`${process.env.PUBLIC_URL}/venues`}>Venues</Link>
         </li>
       </ul>
