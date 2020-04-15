@@ -56,6 +56,7 @@ export default function App() {
           </Route>
         </Switch>
       </div>
+      <HeaderMenu open={true} setMenuOpen={() => {}} darkBg={true}/>
     </Router>
   );
 }

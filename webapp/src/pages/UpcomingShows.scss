@@ -2,7 +2,7 @@
 
 .upcomingShows.container {
   min-height: 800px;
-  margin-bottom: 50px;
+  //margin-bottom: 50px;
   background-color: $primaryMauve;
   padding-top: $spacing;
   .upcomingShowsHeader {
@@ -14,6 +14,7 @@
     min-height: 500px;
     background-color: $white;
     padding: $halfSpacing $spacing;
+    padding-bottom: 50px;
     .count {
       font-weight: bold;
       font-size: $baseFontSize;

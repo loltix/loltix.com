@@ -3,7 +3,6 @@ import "./ComedianBio.scss";
 import UpcomingShowList from "../components/upcomingShowList/UpcomingShowList";
 import Carousel from "../components/Carousel";
 import { useParams } from "react-router-dom";
-import HeaderMenu from "../components/menu/HeaderMenu";
 
 const comedian = {
   name: "Gabriel Iglesias",
@@ -178,8 +177,6 @@ export default function ComedianBio() {
           items={otherPerformers}
           title="OTHER PERFORMERS YOU MIGHT LIKE"
         />
-
-        <HeaderMenu open={true} setMenuOpen={() => {}} darkBg={true}/>
       </div>
     </section>
   );
