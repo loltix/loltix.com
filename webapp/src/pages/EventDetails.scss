@@ -165,3 +165,50 @@
     }
   }
 }
+
+@media (max-width: $mobileBreakpoint) {
+  .container.eventDetails {
+    padding: 0;
+    .topSection {
+      flex-direction: column;
+      img.performerPhoto {
+        width: 100%;
+        height: unset;
+      }
+      .leftSide {
+        padding-bottom: 0;
+      }
+      .rightSide {
+        padding-top: $halfSpacing;
+        .datesAndLocation {
+          .dates {
+            margin-top: $spacing / 4;
+            width: 100%;
+            font-size: $baseFontSize;
+          }
+          .location {
+            margin-top: $spacing;
+            width: 100%;
+            .venueName {
+              font-size: $baseFontSize;
+            }
+            .venueAddress {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .mainBody {
+      .mainColumns {
+        flex-direction: column;
+        border-bottom: 0;
+        margin-bottom: 0;
+        > div {
+          width: 100%;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}

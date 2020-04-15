@@ -37,3 +37,12 @@
     }
   }
 }
+
+@media (max-width: $mobileBreakpoint) {
+  .carousel {
+    h3 {
+      font-size: $baseFontSize * 1.2;
+      text-align: center;
+    }
+  }
+}

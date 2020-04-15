@@ -8,7 +8,7 @@ import moment from "moment";
 
 const fakeEventData = {
   name: "Frankie Quinones",
-  imageUrl: "https://www.fillmurray.com/250/200",
+  imageUrl: "https://www.fillmurray.com/800/600",
   dateStart: "Saturday, August 17",
   dateEnd: "Sunday August 18",
   venue: {
