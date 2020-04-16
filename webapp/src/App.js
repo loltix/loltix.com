@@ -13,11 +13,13 @@ import TopHeader from "./components/TopHeader";
 import HeaderMenu from "./components/menu/HeaderMenu";
 
 import "./App.scss";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <Router>
+      <ScrollToTop />
       <header>
         <TopHeader
           onMenuButtonClick={() => {
@@ -56,7 +58,7 @@ export default function App() {
           </Route>
         </Switch>
       </div>
-      <HeaderMenu open={true} setMenuOpen={() => {}} darkBg={true}/>
+      <HeaderMenu open={true} setMenuOpen={() => {}} darkBg={true} />
     </Router>
   );
 }

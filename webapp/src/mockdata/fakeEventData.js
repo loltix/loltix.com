@@ -1,83 +1,122 @@
-export default [
-  {
-    id: "11111",
-    name: "Trenton Davis",
-    avatarUrl: "https://www.fillmurray.com/173/151",
-    description:
-      "Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.  ",
+const prototypeEvent = {
+  id: "11111",
+  name: "Trenton Davis",
+  avatarUrl: "https://www.fillmurray.com/173/151",
+  description:
+    "Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.  ",
 
-    venueName: "Laffs Comedy Cafe",
-    venueLocation: "Tuscon",
-    showDates: [
-      {
-        day: "Wednesday, August 17th",
-        times: "8:00 PM, 9:30 PM"
-      },
-      {
-        day: "Thursday, August 18th",
-        times: "8:00 PM, 9:30 PM"
-      }
-    ],
-    ctaText: "TICKETS $12.50+"
-  },
-  {
-    id: "2222",
-    name: "Peter Andrews",
-    avatarUrl: "https://www.fillmurray.com/173/154",
-    description:
-      "Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.  ",
+  venueName: "Laffs Comedy Cafe",
+  venueLocation: "Tuscon",
+  showDates: [
+    {
+      day: "Wednesday, August 17th",
+      times: "8:00 PM, 9:30 PM"
+    },
+    {
+      day: "Thursday, August 18th",
+      times: "8:00 PM, 9:30 PM"
+    }
+  ],
+  ctaText: "TICKETS $12.50+"
+};
 
-    venueName: "Laffs Comedy Cafe",
-    venueLocation: "Tuscon",
-    showDates: [
-      {
-        day: "Wednesday, August 17th",
-        times: "8:00 PM, 9:30 PM"
-      },
-      {
-        day: "Thursday, August 18th",
-        times: "8:00 PM, 9:30 PM"
-      }
-    ],
-    ctaText: "TICKETS $12.50+"
-  },
-  {
-    id: "213213",
-    name: "Jim Davis",
-    avatarUrl: "https://www.fillmurray.com/173/152",
-    description:
-      "Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.  ",
-    venueName: "Club Congress",
-    venueLocation: "Tuscon",
-    showDates: [
-      {
-        day: "Wednesday, August 17th",
-        times: "8:00 PM, 9:30 PM"
-      },
-      {
-        day: "Thursday, August 18th",
-        times: "8:00 PM, 9:30 PM"
-      }
-    ],
-    ctaText: "TICKETS $12.50+"
-  },
-  {
-    id: "4444",
-    name: "jerry Davis",
-    avatarUrl: "https://www.fillmurray.com/173/153",
-    description:
-      "Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.  ",
-    venueName: "Fox Theatre",
-    venueLocation: "Tuscon",
-    showDates: [
-      {
-        day: "Wednesday, August 17th",
-        times: "8:00 PM, 9:30 PM"
-      }
-    ],
-    ctaText: "TICKETS $12.50+"
-  }
-];
+let fakeEvents = [];
+const NUM_FAKE_EVENTS = 30;
+for (let i = 0; i < NUM_FAKE_EVENTS; ++i) {
+  const clonedEvent = Object.assign({}, prototypeEvent);
+  clonedEvent.id = i + 1;
+  clonedEvent.name = `Sample ${i + 1}`;
+  clonedEvent.avatarUrl = `https://www.fillmurray.com/173/${150 + i}`;
+
+  // fake fields to prove sorting for now
+  clonedEvent.distance = i;
+  clonedEvent.price = NUM_FAKE_EVENTS - i;
+  clonedEvent.popularity = i;
+
+  fakeEvents.push(clonedEvent);
+}
+export default fakeEvents;
+
+// export default [
+//   {
+//     id: "11111",
+//     name: "Trenton Davis",
+//     avatarUrl: "https://www.fillmurray.com/173/151",
+//     description:
+//       "Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.  ",
+//
+//     venueName: "Laffs Comedy Cafe",
+//     venueLocation: "Tuscon",
+//     showDates: [
+//       {
+//         day: "Wednesday, August 17th",
+//         times: "8:00 PM, 9:30 PM"
+//       },
+//       {
+//         day: "Thursday, August 18th",
+//         times: "8:00 PM, 9:30 PM"
+//       }
+//     ],
+//     ctaText: "TICKETS $12.50+"
+//   },
+//   {
+//     id: "2222",
+//     name: "Peter Andrews",
+//     avatarUrl: "https://www.fillmurray.com/173/154",
+//     description:
+//       "Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.  ",
+//
+//     venueName: "Laffs Comedy Cafe",
+//     venueLocation: "Tuscon",
+//     showDates: [
+//       {
+//         day: "Wednesday, August 17th",
+//         times: "8:00 PM, 9:30 PM"
+//       },
+//       {
+//         day: "Thursday, August 18th",
+//         times: "8:00 PM, 9:30 PM"
+//       }
+//     ],
+//     ctaText: "TICKETS $12.50+"
+//   },
+//   {
+//     id: "213213",
+//     name: "Jim Davis",
+//     avatarUrl: "https://www.fillmurray.com/173/152",
+//     description:
+//       "Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.  ",
+//     venueName: "Club Congress",
+//     venueLocation: "Tuscon",
+//     showDates: [
+//       {
+//         day: "Wednesday, August 17th",
+//         times: "8:00 PM, 9:30 PM"
+//       },
+//       {
+//         day: "Thursday, August 18th",
+//         times: "8:00 PM, 9:30 PM"
+//       }
+//     ],
+//     ctaText: "TICKETS $12.50+"
+//   },
+//   {
+//     id: "4444",
+//     name: "jerry Davis",
+//     avatarUrl: "https://www.fillmurray.com/173/153",
+//     description:
+//       "Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.   Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet.  ",
+//     venueName: "Fox Theatre",
+//     venueLocation: "Tuscon",
+//     showDates: [
+//       {
+//         day: "Wednesday, August 17th",
+//         times: "8:00 PM, 9:30 PM"
+//       }
+//     ],
+//     ctaText: "TICKETS $12.50+"
+//   }
+// ];
 
 export const fakeEventDetailsData = {
   name: "Frankie Quinones",
