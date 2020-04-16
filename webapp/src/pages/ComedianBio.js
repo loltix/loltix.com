@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ComedianBio.scss";
 import UpcomingShowList from "../components/upcomingShowList/UpcomingShowList";
 import Carousel from "../components/Carousel";
+import { useParams } from "react-router-dom";
 
 const comedian = {
   name: "Gabriel Iglesias",
@@ -42,6 +43,12 @@ const otherPerformers = [
 ];
 
 export default function ComedianBio() {
+  const { comedianId } = useParams();
+  useEffect(() => {
+    console.log("comedianId = ", comedianId);
+    window.scrollTo(0, 0);
+  }, [comedianId]);
+
   return (
     <section>
       <div className="container comedianBio">
@@ -170,11 +177,6 @@ export default function ComedianBio() {
           items={otherPerformers}
           title="OTHER PERFORMERS YOU MIGHT LIKE"
         />
-
-        <br />
-        <br />
-        <br />
-        <br />
       </div>
     </section>
   );

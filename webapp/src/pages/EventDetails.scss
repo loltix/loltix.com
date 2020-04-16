@@ -4,6 +4,9 @@
   min-height: 1000px;
   background-color: $primaryMauve;
   padding-top: $spacing;
+  .stickyTicketLink {
+    display: none;
+  }
   .topSection {
     //border: 1px solid red;
     display: flex;
@@ -70,6 +73,31 @@
         padding: $spacing;
       }
 
+      .rightSide {
+        .venueSection {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: $halfSpacing;
+          .venueDetails {
+            color: $mediumGray;
+            font-size: $baseFontSize;
+            .sectionHeader {
+              color: black;
+            }
+            .venueName {
+              font-weight: bold;
+              color: $primaryOrange;
+            }
+          }
+          .venueLogo {
+            img {
+              width: 100px;
+            }
+            margin-left: $halfSpacing;
+          }
+        }
+      }
+
       .shareThis {
         display: flex;
         align-items: center;
@@ -113,8 +141,23 @@
           border: 1px solid #666;
           margin-right: $spacing;
           margin-bottom: $spacing;
+          img {
+            width: 100px;
+            height: 100px;
+          }
           &:hover {
             cursor: pointer;
+          }
+        }
+        &.small {
+          .performer {
+            min-width: 50px;
+            width: 50px;
+            height: 50px;
+            img {
+              width: 50px;
+              height: 50px;
+            }
           }
         }
       }
@@ -122,6 +165,71 @@
     .otherShowsYouMightLike {
       padding: $spacing;
       border-top: 1px solid black;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .container.eventDetails {
+    padding: 0;
+    .stickyTicketLink {
+      display: block;
+      position: sticky;
+      bottom: 0;
+      height: 30px;
+      background-color: $primaryOrange;
+      width: 100%;
+      z-index: 1000;
+      text-align: center;
+      a {
+        color: $white;
+        text-decoration: none;
+        padding-top: 6px;
+        width: 100%;
+        display: block;
+      }
+    }
+    .topSection {
+      flex-direction: column;
+      img.performerPhoto {
+        width: 100%;
+        height: unset;
+      }
+      .leftSide {
+        padding-bottom: 0;
+      }
+      .rightSide {
+        padding-top: $halfSpacing;
+        box-sizing: border-box;
+        .datesAndLocation {
+          .dates {
+            margin-top: $spacing / 4;
+            width: 100%;
+            font-size: $baseFontSize;
+          }
+          .location {
+            margin-top: $spacing;
+            width: 100%;
+            .venueName {
+              font-size: $baseFontSize;
+            }
+            .venueAddress {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .mainBody {
+      .mainColumns {
+        flex-direction: column;
+        border-bottom: 0;
+        margin-bottom: 0;
+        > div {
+          width: 100%;
+          box-sizing: border-box;
+        }
+      }
     }
   }
 }

@@ -1,8 +1,23 @@
 import React from "react";
 import "./EventRow.scss";
 import { withRouter } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 
-export default withRouter(function EventRow({ history, event }) {
+export default withRouter(function EventRow({
+  history,
+  event = {},
+  loading = false
+}) {
+  if (loading) {
+    return (
+      <div className="eventRow">
+        <div style={{ width: "100%" }}>
+          <Skeleton height={150} />
+        </div>
+      </div>
+    );
+  }
+  const showDates = event.showDates || [];
   return (
     <div className="eventRow">
       <div className="dateAndImage">
@@ -29,20 +44,24 @@ export default withRouter(function EventRow({ history, event }) {
       </div>
       <div className="locationAndTimes">
         <div>
-          <strong>Laffs Comedy Cafe</strong>
+          <strong>{event.venueName}</strong>
         </div>
         <div className="location">
-          <strong>Tuscon</strong>
+          <strong>{event.venueLocation}</strong>
         </div>
-        {event.showDates.map((showDate, i) => {
+        {showDates.map((showDate, i) => {
           return (
             <div className="eventTime" key={i}>
-              <div>{showDate.day}</div>
-              <div>{showDate.times}</div>
+              <div>{loading ? <Skeleton /> : showDate.day}</div>
+              <div>{loading ? <Skeleton /> : showDate.times}</div>
             </div>
           );
         })}
-        <button className="ctaButton">TICKETS $12.50+</button>
+        {loading ? (
+          <Skeleton />
+        ) : (
+          <button className="ctaButton">{event.ctaText}</button>
+        )}
       </div>
     </div>
   );

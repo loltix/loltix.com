@@ -1,10 +1,54 @@
-import React from "react";
+import React, { useState, Fragment } from "react";
 import "./UpcomingShows.scss";
 import EventRow from "../components/EventRow";
 import Filters from "../components/Filters";
-import fakeEventData from "../mockdata/fakeEventData";
+import apiService from "../api/service";
+import InfiniteScroll from "react-infinite-scroller";
+
+const PAGE_SIZE = 7;
 
 export default function UpcomingShows() {
+  const [eventData, setEventData] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
+  const [total, setTotal] = useState(0);
+  const [offset, setOffset] = useState(0);
+  const [isFetching, setIsFetching] = useState(false);
+
+  const loader = (
+    <Fragment key={0}>
+      <EventRow loading />
+      <EventRow loading />
+    </Fragment>
+  );
+  const numberItemsShown = eventData && eventData.length;
+  let items = [];
+  if (eventData) {
+    eventData.forEach(event => {
+      items.push(<EventRow key={event.id} event={event} />);
+    });
+  }
+
+  const loadMore = () => {
+    if (isFetching) {
+      return;
+    }
+    console.log("DEBUG: load more");
+    setIsFetching(true);
+    apiService
+      .getUpcomingShows({
+        pageSize: PAGE_SIZE,
+        offset
+      })
+      .then(response => {
+        console.log("DEBUG: response = ", response);
+        setIsFetching(false);
+        setEventData([...eventData, ...response.results]);
+        setHasMore(response.hasMore);
+        setTotal(response.total);
+        setOffset(response.offset);
+      });
+  };
+
   return (
     <section>
       <div className="container upcomingShows">
@@ -13,15 +57,23 @@ export default function UpcomingShows() {
           <Filters />
         </div>
         <div className="searchResultsContainer">
-          <div className="count">
-            1-5 of over 35 events within 50 miles of{" "}
-            <span className="orangeText">Tuscon, AZ 85719</span>
-          </div>
-          <div className="results">
-            {fakeEventData.map(event => {
-              return <EventRow key={event.id} event={event} />;
-            })}
-          </div>
+          {eventData && (
+            <div className="count">
+              {numberItemsShown} of {total} events within X miles of{" "}
+              <span className="orangeText">Tuscon, AZ 85719</span>
+            </div>
+          )}
+
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={loadMore}
+            hasMore={hasMore}
+            loader={loader}
+          >
+            <div className="results">{items}</div>
+          </InfiniteScroll>
+
+          <br />
         </div>
       </div>
     </section>
