@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import "./UpcomingShows.scss";
 import EventRow from "../components/EventRow";
 import Filters from "../components/Filters";
@@ -8,11 +8,6 @@ import InfiniteScroll from "react-infinite-scroller";
 const PAGE_SIZE = 7;
 
 export default function UpcomingShows() {
-  // TODO: fix the bug where if you refresh the page its stuck
-  // at the bottom of the page and loads THEM ALL (only in chrome?)
-  // NOTE: maybe if we switch to a traditional class based component this
-  // crappy infinite scroll component will work...
-      // OR: try this one: https://github.com/ankeetmaini/react-infinite-scroll-component#readme
   const [eventData, setEventData] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [total, setTotal] = useState(0);
@@ -28,7 +23,7 @@ export default function UpcomingShows() {
   const numberItemsShown = eventData && eventData.length;
   let items = [];
   if (eventData) {
-    eventData.map(event => {
+    eventData.forEach(event => {
       items.push(<EventRow key={event.id} event={event} />);
     });
   }
