@@ -70,16 +70,22 @@ export default function EventDetails() {
             <div className="leftSide">
               <h3 className="sectionHeader">DATES & TIMES</h3>
               <div className="showTimes">
-                {eventData.showDates.map((showDate, i) => {
-                  return (
-                    <div key={i}>
-                      {moment(showDate.date).format(
-                        "dddd, MMMM Do [at] h:mm a"
-                      )}{" "}
-                      <a href={showDate.ticketUrl}>Get Tickets</a>
-                    </div>
-                  );
-                })}
+                <table>
+                  {eventData.showDates.map((showDate, i) => {
+                    return (
+                      <tr key={i}>
+                        <td>
+                          {moment(showDate.date).format(
+                            "dddd, MMMM D [at] h:mm A"
+                          )}
+                        </td>
+                        <td>
+                          <a href={showDate.ticketUrl}>Get Tickets</a>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </table>
               </div>
 
               <h3 className="sectionHeader">SHARE THIS</h3>
