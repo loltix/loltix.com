@@ -1,11 +1,11 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import "./UpcomingShows.scss";
 import EventRow from "../components/EventRow";
 import Filters from "../components/Filters";
 import apiService from "../api/service";
 import InfiniteScroll from "react-infinite-scroller";
 
-const PAGE_SIZE = 7;
+const PAGE_SIZE = 2;
 
 export default function UpcomingShows() {
   const [eventData, setEventData] = useState([]);
@@ -29,7 +29,7 @@ export default function UpcomingShows() {
   }
 
   const loadMore = () => {
-    if (isFetching) {
+    if (isFetching || !hasMore) {
       return;
     }
     console.log("DEBUG: load more");
@@ -49,6 +49,11 @@ export default function UpcomingShows() {
       });
   };
 
+  useEffect(() => {
+    loadMore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <section>
       <div className="container upcomingShows">
@@ -65,6 +70,7 @@ export default function UpcomingShows() {
           )}
 
           <InfiniteScroll
+            initialLoad={false}
             pageStart={0}
             loadMore={loadMore}
             hasMore={hasMore}

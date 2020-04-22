@@ -1,8 +1,4 @@
-import fakeEventData from "../mockdata/fakeEventData";
-
 let instance = null; // singleton
-
-const ARTIFICIAL_DELAY = 500;
 
 class ApiService {
   constructor() {
@@ -10,6 +6,26 @@ class ApiService {
       instance = this;
     }
     return instance;
+  }
+
+  getEventDetails(eventId) {
+    return new Promise((fulfill, reject) => {
+      const url = `/v1/events/${eventId}`;
+
+      fetch(url, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(result => {
+          fulfill(result);
+        });
+    });
   }
 
   getUpcomingShows({
@@ -21,18 +37,25 @@ class ApiService {
     sortBy = null
   }) {
     return new Promise((fulfill, reject) => {
-      setTimeout(() => {
-        const end = offset + pageSize;
-        const results = [...fakeEventData.slice(offset, offset + pageSize)];
-        const total = fakeEventData.length;
-        const hasMore = total > end;
-        fulfill({
-          results,
-          total,
-          offset: end,
-          hasMore
+      const url = `/v1/events?offset=${offset}&pageSize=${pageSize}`;
+
+      fetch(url, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+        .then(function(response) {
+          return response.json();
+        })
+        .then(result => {
+          let clone = Object.assign({}, result);
+          // calculate the hasMore boolean
+          const hasMore = clone.total >= offset + 1 + pageSize;
+          clone.hasMore = hasMore;
+          fulfill(clone);
         });
-      }, ARTIFICIAL_DELAY);
     });
   }
 }

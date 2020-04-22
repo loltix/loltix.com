@@ -5,21 +5,17 @@ import VenueMap from "../components/VenueMap";
 import Carousel from "../components/Carousel";
 import Skeleton from "react-loading-skeleton";
 import moment from "moment";
-import { fakeEventDetailsData } from "../mockdata/fakeEventData";
+import apiService from "../api/service";
 
 export default function EventDetails() {
   const { eventId } = useParams();
-  useEffect(() => {
-    console.log("event id = ", eventId);
-    window.scrollTo(0, 0);
-  }, [eventId]);
 
   const [eventData, setEventData] = useState(null);
   useEffect(() => {
-    setTimeout(() => {
-      setEventData(fakeEventDetailsData);
-    }, 1000);
-  });
+    apiService.getEventDetails(eventId).then(response => {
+      setEventData(response);
+    });
+  }, [eventId]);
 
   if (!eventData) {
     return (
@@ -71,20 +67,22 @@ export default function EventDetails() {
               <h3 className="sectionHeader">DATES & TIMES</h3>
               <div className="showTimes">
                 <table>
-                  {eventData.showDates.map((showDate, i) => {
-                    return (
-                      <tr key={i}>
-                        <td>
-                          {moment(showDate.date).format(
-                            "dddd, MMMM D [at] h:mm A"
-                          )}
-                        </td>
-                        <td>
-                          <a href={showDate.ticketUrl}>Get Tickets</a>
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  <tbody>
+                    {eventData.showDates.map((showDate, i) => {
+                      return (
+                        <tr key={i}>
+                          <td>
+                            {moment(showDate.date).format(
+                              "dddd, MMMM D [at] h:mm A"
+                            )}
+                          </td>
+                          <td>
+                            <a href={showDate.ticketUrl}>Get Tickets</a>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
                 </table>
               </div>
 
