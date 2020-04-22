@@ -1,5 +1,10 @@
 let instance = null; // singleton
 
+// see the 'proxy' param in package.json that automatically proxy's
+// all API requests when running in dev mode
+const ROOT_API_URL =
+  process.env.NODE_ENV !== "production" ? "" : "https://api.loltix.com";
+
 class ApiService {
   constructor() {
     if (!instance) {
@@ -10,7 +15,7 @@ class ApiService {
 
   getEventDetails(eventId) {
     return new Promise((fulfill, reject) => {
-      const url = `/v1/events/${eventId}`;
+      const url = `${ROOT_API_URL}/v1/events/${eventId}`;
 
       fetch(url, {
         method: "GET",
@@ -37,7 +42,7 @@ class ApiService {
     sortBy = null
   }) {
     return new Promise((fulfill, reject) => {
-      const url = `/v1/events?offset=${offset}&pageSize=${pageSize}`;
+      const url = `${ROOT_API_URL}/v1/events?offset=${offset}&pageSize=${pageSize}`;
 
       fetch(url, {
         method: "GET",
