@@ -6,6 +6,7 @@ import Carousel from "../components/Carousel";
 import Skeleton from "react-loading-skeleton";
 import moment from "moment";
 import apiService from "../api/service";
+import MailingList from "../components/mailingList/MailingList";
 
 export default function EventDetails() {
   const { eventId } = useParams();
@@ -193,6 +194,7 @@ export default function EventDetails() {
             items={eventData.otherShows}
             title="OTHER SHOWS YOU MIGHT LIKE"
           />
+          <MailingList />
           <div className="stickyTicketLink">
             <a href="/">TICKETS $20+</a>
           </div>
